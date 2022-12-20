@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Barshaa21/Todos.git/static/css/main.d7a6e6a7.css",
-    "main.js": "/Barshaa21/Todos.git/static/js/main.9d7369b0.js",
-    "static/js/787.f237a53c.chunk.js": "/Barshaa21/Todos.git/static/js/787.f237a53c.chunk.js",
-    "index.html": "/Barshaa21/Todos.git/index.html",
-    "main.d7a6e6a7.css.map": "/Barshaa21/Todos.git/static/css/main.d7a6e6a7.css.map",
-    "main.9d7369b0.js.map": "/Barshaa21/Todos.git/static/js/main.9d7369b0.js.map",
-    "787.f237a53c.chunk.js.map": "/Barshaa21/Todos.git/static/js/787.f237a53c.chunk.js.map"
+    "main.css": "/Todos/static/css/main.d7a6e6a7.css",
+    "main.js": "/Todos/static/js/main.c9fabf28.js",
+    "static/js/787.f237a53c.chunk.js": "/Todos/static/js/787.f237a53c.chunk.js",
+    "index.html": "/Todos/index.html",
+    "main.d7a6e6a7.css.map": "/Todos/static/css/main.d7a6e6a7.css.map",
+    "main.c9fabf28.js.map": "/Todos/static/js/main.c9fabf28.js.map",
+    "787.f237a53c.chunk.js.map": "/Todos/static/js/787.f237a53c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d7a6e6a7.css",
-    "static/js/main.9d7369b0.js"
+    "static/js/main.c9fabf28.js"
   ]
 }
