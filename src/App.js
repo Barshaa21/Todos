@@ -1,61 +1,43 @@
-// import logo from './logo.svg';
 import './App.css';
-import Header from './Mycomponents/Header'; 
-import Todos from './Mycomponents/Todos'; 
-// import Todo from './Mycomponents/Todo'; 
-// import Footer from './Mycomponents/Footer'; 
+import Header from './Mycomponents/Header';
+import Todos from './Mycomponents/Todos';
 import { useState } from 'react';
 import Addtodo from './Mycomponents/Addtodo';
-// import nature from './components/nature.jpg';
+import Remove from './Mycomponents/Remove';
 
 function App() {
-  // let initTodo;
-  // if(localStorage.getItem("todos")===null){
-  //   initTodo=[];
-  // }
-  // else{
-  //   initTodo=JSON.parse(localStorage.getItem("todos"));
-  // }
-  const addTodo=(title,desc)=>{
-    console.log('adding todo',title,desc);
-    let sno;
-    if(todos.length===0){sno=1;}
-    else{sno=todos[todos.length-1].sno + 1;}
-  // }
-  const myTodo={
-      sno:sno,
-      title:title,
-      desc:desc
+  const [todos, setTodos] = useState([]);
+  const addTodo = (title, desc) => {
+    let id = new Date().getTime().toString();
+    console.log(id);
+    const myTodo = {
+      id: id,
+      title: title,
+      desc: desc,
     }
-  setTodos([...todos,myTodo]);
-  console.log(myTodo);
-  // if (localStorage.getItem("todos")){localStorage.setItem("todos",JSON.stringify(todos))}
-  // localStorage.setItem("todos",JSON.stringify(todos));
-}
-
-  const onDelete=(todo)=>{
-    console.log('i am deleted',todo);
-    // let index=todos.indexOf(todo);
-    // todos.splice(index,1); Deleting this way doesnot work you have to use settodo
-    setTodos(todos.filter((e)=>{
-      return e!==todo;
-    }
-   ));
-  //  localStorage.setItem("todos",JSON.stringify(todos));
+    setTodos([...todos, myTodo]);
+    console.log(myTodo);
   }
-  const [todos,setTodos]=useState([
-  
-  ]);
 
+  const deleteall = (todos) => {
+    setTodos([]);
+  }
+  const onDelete = (todo) => {
+    console.log('i am deleted', todo);
+    setTodos(todos.filter((e) => {
+      return e !== todo;
+    }
+    ));
+  }
   return (
     <div className="App">
-      <header className="App-header" style={{backgroundImage:"url(/rainbow.jpg)"}}>
+      <header className="App-header" style={{ backgroundColor: " #DA70D6" }}>
         {
           <>
-            <Header/>
-            <Addtodo addTodo={addTodo}/>
-            <Todos todos={todos} onDelete={onDelete}/>
-            {/* <Footer/> */}
+            <Header />
+            <Addtodo addTodo={addTodo} />
+            <Todos todos={todos} onDelete={onDelete} id={addTodo} />
+            <Remove deleteall={deleteall} />
           </>
         }
       </header>
