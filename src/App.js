@@ -6,7 +6,8 @@ import Remove from './Mycomponents/Remove';
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [con, setCon] = useState({ desc: '', title: '',edit: null });
+  const [con, setCon] = useState({ desc: '', title: '', id: null });
+  const [edit, setedit] = useState(false);
 
 
   const submit = (e) => {
@@ -14,18 +15,19 @@ function App() {
     if (!con.title || !con.desc) { alert('title or description cannot be blank') }
     else {
       addTodo(con.title, con.desc);
-      setCon({ ...con, title: '',desc:'' })
+      setCon({ ...con, title: '', desc: '' })
     }
   }
 
   const addTodo = (title, desc, id) => {
-    if (con.edit) {
+    if (edit === true) {
       setTodos(todos.map((todo) => {
-        if (todo.id === con.edit) { return { ...todo, title: con.title, desc: con.desc } }
+        if (todo.id === con.id) { return { ...todo, title: con.title, desc: con.desc } }
         return todo;
       })
       )
-      setCon({ ...con, title: '',desc:'',edit:null })
+      setCon({ title: '', desc: '' });
+      setedit(false);
     }
     else {
       let id = new Date().getTime().toString();
@@ -40,11 +42,14 @@ function App() {
 
     }
   }
-  const editTodo = (id) => {
+
+
+  const editTodo = (id, title, desc) => {
     let editedItem = todos.find((todo) => {
       return todo.id === id
     });
-    setCon({ ...con, title: editedItem.title,desc:editedItem.desc,edit:id  })
+    setCon({ title: editedItem.title, desc: editedItem.desc, id: id })
+    setedit(true)
   }
 
   const deleteall = (todos) => {
@@ -60,11 +65,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header" style={{ backgroundColor: " #DA70D6" }}>
+      <header className="App-header" style={{ backgroundColor: " grey" }}>
         {
           <>
             <Header />
-               <div className='div' style={{ color: 'white', paddingTop: '20px', }}>
+            <div className='div' style={{ color: 'white', paddingTop: '20px', }}>
               <form onSubmit={submit}>
                 <div className="container mb-3 border border-dark" style={{ width: '550px', height: '100px', backgroundColor: 'black' }}>
                   <label htmlFor="Title" className="form-label">Todo Title</label>
@@ -74,7 +79,6 @@ function App() {
                   <label htmlFor="Description" className="form-label">Description</label>
                   <input type="text" value={con.desc} onChange={(e) => setCon({ ...con, desc: e.target.value })} className="form-control" />
                 </div>
-               
                 <button type="submit" className="btn btn-primary border border-dark"><span className="bi bi-trash"></span>Add todo</button>
               </form>
             </div>
