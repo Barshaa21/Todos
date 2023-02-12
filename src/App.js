@@ -6,28 +6,28 @@ import Remove from './Mycomponents/Remove';
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [con, setCon] = useState({ desc: '', title: '', id: null });
-  const [edit, setedit] = useState(false);
+  const [con, setCon] = useState({ desc: '', title: ''});
+  const [id, setId] = useState(null);
 
 
   const submit = (e) => {
     e.preventDefault();
     if (!con.title || !con.desc) { alert('title or description cannot be blank') }
     else {
-      addTodo(con.title, con.desc);
+      addTodo(con.title, con.desc,id);
       setCon({ ...con, title: '', desc: '' })
     }
   }
 
   const addTodo = (title, desc, id) => {
-    if (edit === true) {
+    if (id!=null) {
       setTodos(todos.map((todo) => {
-        if (todo.id === con.id) { return { ...todo, title: con.title, desc: con.desc } }
+        if (todo.id === id) { return { ...todo, title: con.title, desc: con.desc } }
         return todo;
       })
       )
       setCon({ title: '', desc: '' });
-      setedit(false);
+      setId(null);
     }
     else {
       let id = new Date().getTime().toString();
@@ -48,8 +48,9 @@ function App() {
     let editedItem = todos.find((todo) => {
       return todo.id === id
     });
-    setCon({ title: editedItem.title, desc: editedItem.desc, id: id })
-    setedit(true)
+    setCon({ title: editedItem.title, desc: editedItem.desc})
+    // setedit(true)
+    setId(id);
   }
 
   const deleteall = (todos) => {
