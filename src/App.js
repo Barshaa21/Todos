@@ -17,8 +17,7 @@ function App() {
     if (!con.title || !con.desc) { alert('title or description cannot be blank') }
     else {
       addTodo(con.title, con.desc,con.id);
-      setCon({ ...con, title: '', desc: '',id:null })//do we need is here?
-      console.log("submit",con.id)
+      setCon({ ...con, title: '', desc: '',id:null })
     }
   }
 
@@ -30,8 +29,6 @@ function App() {
       })
       )
       setCon({ title: '', desc: ''});
-      // console.log("addtodo",con.id);
-      // setId(null);
     }
     else {
       let id = new Date().getTime().toString();
@@ -53,8 +50,6 @@ function App() {
       return todo.id ===id
     });
     setCon({ title: editedItem.title, desc: editedItem.desc,id:editedItem.id})
-    console.log('edit ko id',id)
-    // setId(id);
   }
 
   const deleteall = (todos) => {
