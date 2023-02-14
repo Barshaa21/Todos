@@ -3,31 +3,35 @@ import Header from './Mycomponents/Header';
 import Todos from './Mycomponents/Todos';
 import { useState } from 'react';
 import Remove from './Mycomponents/Remove';
+import bg from './Mycomponents/bg.jpg';
+
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [con, setCon] = useState({ desc: '', title: ''});
-  const [id, setId] = useState(null);
+  const [con, setCon] = useState({ desc: '', title: '',id:null});
+  // const [id, setId] = useState(null);
 
 
   const submit = (e) => {
     e.preventDefault();
     if (!con.title || !con.desc) { alert('title or description cannot be blank') }
     else {
-      addTodo(con.title, con.desc,id);
-      setCon({ ...con, title: '', desc: '' })
+      addTodo(con.title, con.desc,con.id);
+      setCon({ ...con, title: '', desc: '',id:null })//do we need is here?
+      console.log("submit",con.id)
     }
   }
 
   const addTodo = (title, desc, id) => {
-    if (id!=null) {
+    if (con.id!=null) {
       setTodos(todos.map((todo) => {
-        if (todo.id === id) { return { ...todo, title: con.title, desc: con.desc } }
+        if (todo.id === con.id) { return { ...todo, title: con.title, desc: con.desc,id:con.id } }
         return todo;
       })
       )
-      setCon({ title: '', desc: '' });
-      setId(null);
+      setCon({ title: '', desc: ''});
+      // console.log("addtodo",con.id);
+      // setId(null);
     }
     else {
       let id = new Date().getTime().toString();
@@ -46,11 +50,11 @@ function App() {
 
   const editTodo = (id, title, desc) => {
     let editedItem = todos.find((todo) => {
-      return todo.id === id
+      return todo.id ===id
     });
-    setCon({ title: editedItem.title, desc: editedItem.desc})
-    // setedit(true)
-    setId(id);
+    setCon({ title: editedItem.title, desc: editedItem.desc,id:editedItem.id})
+    console.log('edit ko id',id)
+    // setId(id);
   }
 
   const deleteall = (todos) => {
@@ -66,7 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header" style={{ backgroundColor: " grey" }}>
+      <header className="App-header" style={{ backgroundColor: " grey" ,backgroundImage:"url(/bg.jpg)"}}>
         {
           <>
             <Header />
