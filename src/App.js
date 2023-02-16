@@ -3,13 +3,11 @@ import Header from './Mycomponents/Header';
 import Todos from './Mycomponents/Todos';
 import { useState } from 'react';
 import Remove from './Mycomponents/Remove';
-import bg from './Mycomponents/bg.jpg';
 
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [con, setCon] = useState({ desc: '', title: '',id:null});
-  // const [id, setId] = useState(null);
 
 
   const submit = (e) => {
@@ -28,7 +26,7 @@ function App() {
         return todo;
       })
       )
-      setCon({ title: '', desc: ''});
+      setCon({ title: '', desc: '',id:null});
     }
     else {
       let id = new Date().getTime().toString();
@@ -65,7 +63,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header" style={{ backgroundColor: " grey" ,backgroundImage:"url(/bg.jpg)"}}>
+      <header className="App-header" style={{ backgroundColor: " grey"}}>
         {
           <>
             <Header />
