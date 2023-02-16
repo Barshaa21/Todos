@@ -26,7 +26,6 @@ function App() {
         return todo;
       })
       )
-      setCon({ title: '', desc: '',id:null});
     }
     else {
       let id = new Date().getTime().toString();
