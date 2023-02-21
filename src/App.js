@@ -3,7 +3,7 @@ import Header from './Mycomponents/Header';
 import Todos from './Mycomponents/Todos';
 import { useState } from 'react';
 import Remove from './Mycomponents/Remove';
-import Forms from './Mycomponents/Forms';
+import Forms from './Mycomponents/Form';
 
 function App() {
   const [todos, setTodos] = useState([]);
