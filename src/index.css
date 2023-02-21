@@ -11,3 +11,106 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.appmain{
+   background-image: url('/src/Mycomponents/bg.jpg');
+  min-height: 700px;
+}
+
+.btn{
+  background-color: lightseagreen; 
+  border: 1px solid #080808; 
+  color: white; 
+  padding: 12px 24px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px; 
+  margin: 4px 2px; 
+  cursor: pointer; 
+  border-radius: 8px; 
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color:black;
+  border:5px solid white;
+  color: white;
+  box-shadow: inset;
+}
+.header{
+  text-align:center ;
+  font-weight: bold;
+  font-size: x-large;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0);
+ }
+
+.addtodo{
+  color: 'white';
+  padding-top: '20px'
+}
+
+.Todos{
+  background-color: black;
+}
+
+.todoitem{
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  border: 1px solid #080808;
+  display: flex;
+  width: '550px';
+  background-image: radial-gradient(circle, #adc4f7, #ffc371);
+
+}
+
+.con{
+padding-top:20px;
+}
+
+.form{
+  background-color: black;
+  height: 100px;
+  width: 550px;
+  justify-content: center;
+  align-items: center;
+}
+.form-label{
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.container {
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+.element{
+  font-size: large;
+  font-weight: bold;
+}
